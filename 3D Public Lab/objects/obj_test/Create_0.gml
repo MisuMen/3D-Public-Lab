@@ -4,11 +4,8 @@ u3d_system();
 camera = new u3d_camera("mainCamera");
 u3d_camera_rotate(camera,0,20,3);
 
-//model = new u3d_model(working_directory + "kenney_platformer-kit/tree.glb");
-//u3d_model_spawn(model,0,0,0);
-
-model = new u3d_model(working_directory + "kenney_mini-characters/character-female-b.glb");
-u3d_model_spawn(model,0,0,0,true);
+model = new u3d_model(working_directory + "");
+//u3d_model_spawn(model,0,0,0,true);
 
 ////////////////////////////////////////////////////////////////////////////////////////////
 
