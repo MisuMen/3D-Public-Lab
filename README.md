@@ -8,5 +8,5 @@ Yes you can! Whatever resource that is provided is free to use! Please note that
 Independently yes! This is a public access project for the community. You are free to grab this and edit this project at your own will. You can even share your scripts and other resources that will help with the 3D development via my discord: https://discord.gg/7DYTFU7bS. 
 
 ## IMPORTANT!
-The GM3D resources are based from the sample file provided by iampremo & kraifpatrik, found here: https://github.com/YoYoGames/GM3D-Samples
+The GM3D shaders and some codes are based from the sample file provided by iampremo & kraifpatrik, found here: https://github.com/YoYoGames/GM3D-Samples
 It is still under development and may change in the future.
