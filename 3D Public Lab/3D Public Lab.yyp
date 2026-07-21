@@ -22,6 +22,7 @@
   },
   "name":"3D Public Lab",
   "resources":[
+    {"id":{"name":"ReadMe","path":"notes/ReadMe/ReadMe.yy",},},
     {"id":{"name":"obj_test","path":"objects/obj_test/obj_test.yy",},},
     {"id":{"name":"Room1","path":"rooms/Room1/Room1.yy",},},
     {"id":{"name":"test_Room","path":"rooms/test_Room/test_Room.yy",},},
