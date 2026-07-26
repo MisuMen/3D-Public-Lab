@@ -46,30 +46,26 @@ function u3d_pointer(_node,_dire) {
 	_node.setLocalRotation(_rotation.normalizeSafe(0.000001));
 }
 	
-function u3d_shaders(_scene, _instanced = false) {
+function u3d_shaders(_scene) {
 	var _nodes = _scene.getNodes();
 	var _materials = _scene.getMaterials();
 
-	var _staticShader = _instanced ? shStaticInstanced : shStatic;
-	var _animatedShader = _instanced ? shAnimatedInstanced : shAnimated;
+	var _staticShader = shStaticInstanced;
+	var _animatedShader = shAnimatedInstanced;
 
 	// Assign static shader to all materials by default
-	for (var _matIdx = 0; _matIdx < array_length(_materials); ++_matIdx)
-	{
+	for (var _matIdx = 0; _matIdx < array_length(_materials); ++_matIdx) {
 		var _material = _materials[_matIdx];
 		_material.setShader(_staticShader);
 	}
 
 	// Override with animated shader for nodes with skinned mesh components
-	for (var _nodeIdx = 0; _nodeIdx < array_length(_nodes); ++_nodeIdx)
-	{
+	for (var _nodeIdx = 0; _nodeIdx < array_length(_nodes); ++_nodeIdx) {
 		var _node = _nodes[_nodeIdx];
 		var _skinnedComp = _node.getSkinnedMeshComponent();
-		if (_skinnedComp != undefined)
-		{
+		if (_skinnedComp != undefined) {
 			var _skinnedMat = _skinnedComp.getMaterial();
-			if (_skinnedMat != undefined)
-			{
+			if (_skinnedMat != undefined) {
 				_skinnedMat.setShader(_animatedShader);
 			}
 		}
@@ -118,9 +114,31 @@ function u3d_camera_set_view(_ind) {
 	u3d_pointer(_ind.node, _lookDir);
 }
 
-function u3d_camera_set_proj(_ind,_fov,_aspect,_near,_far,_rect=[0,0,1,1]) {
+function u3d_camera_set_proj(_ind,_width,_height,_near,_far,_rect=[0,0,1,1]) {
+    _ind.comp.setProjection(GM3D_ECameraProjection.Perspective);
+    _ind.comp.setRenderSizeMode(GM3D_ECameraRenderSizeMode.Fixed);
+    _ind.comp.setRenderWidth(_width);
+	_ind.comp.setRenderHeight(_height);
+    _ind.comp.setNear(_near);
+	_ind.comp.setFar(_far);
+	_ind.comp.setScreenRect(_rect);
+}
+
+function u3d_camera_set_proj_fov(_ind,_fov,_aspect,_near,_far,_rect=[0,0,1,1]) {
+    _ind.comp.setProjection(GM3D_ECameraProjection.Perspective);
+    _ind.comp.setRenderSizeMode(GM3D_ECameraRenderSizeMode.Auto);
 	_ind.comp.setFovY(_fov);
 	_ind.comp.setAspectRatio(_aspect);
+	_ind.comp.setNear(_near);
+	_ind.comp.setFar(_far);
+	_ind.comp.setScreenRect(_rect);
+}
+
+function u3d_camera_set_proj_ortho(_ind,_width,_height,_near,_far,_rect=[0,0,1,1]) {
+    _ind.comp.setProjection(GM3D_ECameraProjection.Orthographic);
+    _ind.comp.setRenderSizeMode(GM3D_ECameraRenderSizeMode.Auto);
+	_ind.comp.setOrthoWidth(_width);
+	_ind.comp.setOrthoHeight(_height);
 	_ind.comp.setNear(_near);
 	_ind.comp.setFar(_far);
 	_ind.comp.setScreenRect(_rect);

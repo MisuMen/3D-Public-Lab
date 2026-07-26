@@ -10,3 +10,7 @@ Independently yes! This is a public access project for the community. You are fr
 ## IMPORTANT!
 The GM3D shaders and some codes are based from the sample file provided by iampremo & kraifpatrik, found here: https://github.com/YoYoGames/GM3D-Samples
 It is still under development and may change in the future.
+
+### Resources
+Crate model and texture by sergeyanzurov011 from CGTracer (royalty free asset): 
+https://www.cgtrader.com/free-3d-models/industrial/other/wooden-box-crate-1607437b-3865-4fcb-abec-016415ce5fc0
